@@ -1,0 +1,18 @@
+{
+  "name": "techdad-acme_sh",
+  "version": "1.0.0",
+  "author": "techdad",
+  "summary": "Install acme.sh LE client from https://github.com/Neilpang/acme.sh",
+  "license": "Apache-2.0",
+  "source": "https://github.com/techdad/puppet-acme_sh",
+  "project_page": "https://github.com/techdad/puppet-acme_sh",
+  "issues_url": "https://github.com/techdad/puppet-acme_sh/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 4.0.0 < 5.0.0"}
+  ],
+  "operatingsystem_support": [
+    {"operatingsystem":"RedHat","operatingsystemrelease":[ "6.0" ]}
+  ]
+  "data_provider": null
+}
+
