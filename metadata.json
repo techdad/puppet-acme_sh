@@ -12,7 +12,6 @@
   ],
   "operatingsystem_support": [
     {"operatingsystem":"RedHat","operatingsystemrelease":[ "6.0" ]}
-  ]
+  ],
   "data_provider": null
 }
-
