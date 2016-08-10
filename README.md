@@ -10,10 +10,10 @@ This just installs the script/client only. You still need to do any certificate 
 
 Needs two parameters:
 
- * `acme_home` -
+ * `$acme_home` -
  The full path to install the acme.sh script into (overriding $HOME/.acme.sh).
 
- * `acme_accountemail` -
+ * `$accountemail` -
  Specify the email address to be used in Letsencrypt API communications.
  This email address will later receive certificate expiry warnings.
 
