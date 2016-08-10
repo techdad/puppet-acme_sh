@@ -13,7 +13,7 @@ Needs two parameters:
  * `acme_home` -
  The full path to install the acme.sh script into (overriding $HOME/.acme.sh).
 
- * `accountemail` -
+ * `acme_accountemail` -
  Specify the email address to be used in Letsencrypt API communications.
  This email address will later receive certificate expiry warnings.
 

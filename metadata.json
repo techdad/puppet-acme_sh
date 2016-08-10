@@ -1,6 +1,6 @@
 {
   "name": "techdad-acme_sh",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "techdad",
   "summary": "Install acme.sh LE client from https://github.com/Neilpang/acme.sh",
   "license": "Apache-2.0",
