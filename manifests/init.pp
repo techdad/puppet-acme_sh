@@ -42,10 +42,10 @@ class acme_sh (
   if $manage_dependencies {
     $dependencies = ['git']
     ensure_packages($dependencies)
-    Package[$dependencies] -> Vcsrepo[$acme_home]
+    Package[$dependencies] -> Vcsrepo[$acme_repo_path]
   }
 
-  vcsrepo {'$acme_repo':
+  vcsrepo {$acme_repo_path:
     ensure   => latest,
     provider => git,
     source   => 'https://github.com/Neilpang/acme.sh.git',
