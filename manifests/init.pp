@@ -41,7 +41,7 @@ class acme_sh (
   $manage_dependencies = $acme_sh::params::manage_dependencies,
   ) inherits acme_sh::params {
 
-  validate_string($acme_home, $acme_accountemail)
+  validate_string($acme_repo_path, $acme_home, $acme_certhome, $acme_accountemail)
   validate_bool($manage_dependencies)
 
   if $manage_dependencies {

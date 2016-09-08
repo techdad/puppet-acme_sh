@@ -10,7 +10,7 @@ This just installs the script/client only. You still need to do any certificate 
 
 Needs the following parameters:
 
- * `$acme_repo_path`
+ * `$acme_repo_path` -
  The full path to clone the acme.sh git repository in order to install from.
  (default: '/opt/acme_repo')
 
@@ -31,11 +31,14 @@ Needs the following parameters:
  The version/release of the acme git repository to clone.
  (default: 'master')
 
- * `$manage_dependencies`
+ * `$manage_dependencies` -
  Boolean to specify whether or not to install the required package dependencies.
  (default: false)
 
 ## Limitations
 
-Only *explicitly* tested on RHEL/CentOS 6 and Debian 7
+Only *explicitly* tested on RHEL/CentOS 6 and Debian 7.
 
+## Dependencies
+
+This module requires puppetlabs/vcsrepo.
