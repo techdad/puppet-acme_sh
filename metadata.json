@@ -18,7 +18,14 @@
     }
   ],
   "operatingsystem_support": [
-    {"operatingsystem":"RedHat","operatingsystemrelease":[ "6.0" ]}
+    { 
+      "operatingsystem":"RedHat",
+      "operatingsystemrelease":[ "6.0" ]
+    }
+    { 
+      "operatingsystem":"Debian",
+      "operatingsystemrelease":[ "7" ]
+    }
   ],
   "data_provider": null
 }

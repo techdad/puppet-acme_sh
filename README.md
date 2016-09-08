@@ -8,16 +8,26 @@ This just installs the script/client only. You still need to do any certificate 
 
 ## Reference
 
-Needs two parameters:
+Needs the following parameters:
+
+ * `$acme_repo_path`
+ The full path to clone the acme.sh git repository in order to install from.
+ (default: '/tmp/acme_sh')
 
  * `$acme_home` -
  The full path to install the acme.sh script into (overriding $HOME/.acme.sh).
+ (default: '/opt/acme/')
 
  * `$accountemail` -
  Specify the email address to be used in Letsencrypt API communications.
  This email address will later receive certificate expiry warnings.
+ (default: undef)
+
+ * `$manage_dependencies`
+ Boolean to specify whether or not to install the required package dependencies.
+ (default: false)
 
 ## Limitations
 
-Only *explicitly* tested on RHEL/CentOS 6.
+Only *explicitly* tested on RHEL/CentOS 6 and Debian 7
 
