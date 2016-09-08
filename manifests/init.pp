@@ -12,6 +12,9 @@
 # * `$acme_home`
 # The full path to install the acme.sh script into (overriding $HOME/.acme.sh).
 #
+# * `$acme_certhome`
+# A customized dir to save the certs you issue. By default, it saves the certs in $acme_home
+#
 # * `$acme_accountemail`
 # Specify the email address to be used in Letsencrypt API communications.
 # This email address will later receive certificate expiry warnings.
@@ -32,6 +35,7 @@
 class acme_sh (
   $acme_repo_path      = $acme_sh::params::acme_repo_path,
   $acme_home           = $acme_sh::params::acme_home,
+  $acme_certhome       = $acme_sh::params::acme_certhome,
   $acme_accountemail   = $acme_sh::params::acme_accountemail,
   $manage_dependencies = $acme_sh::params::manage_dependencies,
   ) inherits acme_sh::params {
@@ -53,7 +57,7 @@ class acme_sh (
   }
 
   exec { 'acme_sh::self-install':
-    command     => "/bin/sh ./acme.sh --install --home ${acme_home} --accountemail \"${acme_accountemail}\"",
+    command     => "/bin/sh ./acme.sh --install --home ${acme_home} --certhome = ${acme_certhome} --accountemail \"${acme_accountemail}\"",
     path        => ['/bin', '/usr/bin'],
     cwd         => $acme_repo_path,
     refreshonly => true,

@@ -18,6 +18,10 @@ Needs the following parameters:
  The full path to install the acme.sh script into (overriding $HOME/.acme.sh).
  (default: '/opt/acme/')
 
+ * `$acme_certhome` -
+ A customized dir to save the certs you issue.
+ (default: $acme_home)
+
  * `$accountemail` -
  Specify the email address to be used in Letsencrypt API communications.
  This email address will later receive certificate expiry warnings.
