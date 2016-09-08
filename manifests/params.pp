@@ -3,7 +3,7 @@ class acme_sh::params {
   $acme_home           = '/opt/acme'
   $acme_certhome       = $acme_home
   $acme_accountemail   = undef
-  $acme_version        = '2.3.0'
+  $acme_version        = 'master'
   $manage_dependencies = false
 }
 
