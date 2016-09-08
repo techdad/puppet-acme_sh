@@ -12,11 +12,11 @@ Needs the following parameters:
 
  * `$acme_repo_path`
  The full path to clone the acme.sh git repository in order to install from.
- (default: '/tmp/acme_sh')
+ (default: '/opt/acme_repo')
 
  * `$acme_home` -
  The full path to install the acme.sh script into (overriding $HOME/.acme.sh).
- (default: '/opt/acme/')
+ (default: '/opt/acme')
 
  * `$acme_certhome` -
  A customized dir to save the certs you issue.
@@ -26,6 +26,10 @@ Needs the following parameters:
  Specify the email address to be used in Letsencrypt API communications.
  This email address will later receive certificate expiry warnings.
  (default: undef)
+
+ * `$acme_version` -
+ The version/release of the acme git repository to clone.
+ (default: '2.3.0')
 
  * `$manage_dependencies`
  Boolean to specify whether or not to install the required package dependencies.

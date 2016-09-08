@@ -37,6 +37,7 @@ class acme_sh (
   $acme_home           = $acme_sh::params::acme_home,
   $acme_certhome       = $acme_sh::params::acme_certhome,
   $acme_accountemail   = $acme_sh::params::acme_accountemail,
+  $acme_version        = $acme_sh::params::acme_version,
   $manage_dependencies = $acme_sh::params::manage_dependencies,
   ) inherits acme_sh::params {
 
@@ -50,14 +51,15 @@ class acme_sh (
   }
 
   vcsrepo {$acme_repo_path:
-    ensure   => latest,
+    ensure   => present,
     provider => git,
     source   => 'https://github.com/Neilpang/acme.sh.git',
+    revision => $acme_version,
     notify   => Exec['acme_sh::self-install'],
   }
 
   exec { 'acme_sh::self-install':
-    command     => "/bin/sh ./acme.sh --install --home ${acme_home} --certhome = ${acme_certhome} --accountemail \"${acme_accountemail}\"",
+    command     => "/bin/sh ./acme.sh --install --home ${acme_home} --certhome ${acme_certhome} --accountemail \"${acme_accountemail}\"",
     path        => ['/bin', '/usr/bin'],
     cwd         => $acme_repo_path,
     refreshonly => true,
