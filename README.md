@@ -29,7 +29,7 @@ Needs the following parameters:
 
  * `$acme_version` -
  The version/release of the acme git repository to clone.
- (default: '2.3.0')
+ (default: 'master')
 
  * `$manage_dependencies`
  Boolean to specify whether or not to install the required package dependencies.
