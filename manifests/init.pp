@@ -26,6 +26,7 @@
 # -------
 #
 # Daniel Shaw <daniel@techdad.xyz>
+# Walter Kleynscheldt : https://github.com/walkleyn
 #
 # License
 # -------
