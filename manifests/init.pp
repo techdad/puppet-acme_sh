@@ -59,10 +59,10 @@ class acme_sh (
   }
 
   exec { 'acme_sh::self-install':
-    command     => "/bin/sh ./acme.sh --install --home ${acme_home} --certhome ${acme_certhome} --accountemail \"${acme_accountemail}\"",
-    path        => ['/bin', '/usr/bin'],
-    cwd         => $acme_repo_path,
-    refreshonly => true,
+    command => "/bin/sh ./acme.sh --install --home ${acme_home} --certhome ${acme_certhome} --accountemail \"${acme_accountemail}\"",
+    path    => ['/bin', '/usr/bin'],
+    cwd     => $acme_repo_path,
+    creates => $acme_home,
   }
 
 }
