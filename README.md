@@ -22,7 +22,7 @@ Needs the following parameters:
  A customized dir to save the certs you issue.  
  (default: $acme_home)
 
- * `$accountemail` -
+ * `$acme_accountemail` -
  Specify the email address to be used in Letsencrypt API communications.
  This email address will later receive certificate expiry warnings.  
  (default: undef)
