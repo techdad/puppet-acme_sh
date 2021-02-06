@@ -34,6 +34,7 @@
 # Apache 2.0
 #
 class acme_sh (
+  $acme_source         = $acme_sh::params::acme_source,
   $acme_repo_path      = $acme_sh::params::acme_repo_path,
   $acme_home           = $acme_sh::params::acme_home,
   $acme_certhome       = $acme_sh::params::acme_certhome,
@@ -54,7 +55,7 @@ class acme_sh (
   vcsrepo {$acme_repo_path:
     ensure   => present,
     provider => git,
-    source   => 'https://github.com/Neilpang/acme.sh.git',
+    source   => $acme_source,
     revision => $acme_version,
     notify   => Exec['acme_sh::self-install'],
   }
