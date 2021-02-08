@@ -34,16 +34,14 @@
 # Apache 2.0
 #
 class acme_sh (
-  $acme_repo_path      = $acme_sh::params::acme_repo_path,
-  $acme_home           = $acme_sh::params::acme_home,
-  $acme_certhome       = $acme_sh::params::acme_certhome,
-  $acme_accountemail   = $acme_sh::params::acme_accountemail,
-  $acme_version        = $acme_sh::params::acme_version,
-  $manage_dependencies = $acme_sh::params::manage_dependencies,
+  String $acme_source         = $acme_sh::params::acme_source,
+  String $acme_repo_path      = $acme_sh::params::acme_repo_path,
+  String $acme_home           = $acme_sh::params::acme_home,
+  String $acme_certhome       = $acme_sh::params::acme_certhome,
+  String $acme_accountemail   = $acme_sh::params::acme_accountemail,
+  String $acme_version        = $acme_sh::params::acme_version,
+  Boolean $manage_dependencies = $acme_sh::params::manage_dependencies,
   ) inherits acme_sh::params {
-
-  validate_string($acme_repo_path, $acme_home, $acme_certhome, $acme_accountemail)
-  validate_bool($manage_dependencies)
 
   if $manage_dependencies {
     $dependencies = ['git']
@@ -54,7 +52,7 @@ class acme_sh (
   vcsrepo {$acme_repo_path:
     ensure   => present,
     provider => git,
-    source   => 'https://github.com/Neilpang/acme.sh.git',
+    source   => $acme_source,
     revision => $acme_version,
     notify   => Exec['acme_sh::self-install'],
   }

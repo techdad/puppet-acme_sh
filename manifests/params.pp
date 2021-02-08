@@ -2,6 +2,7 @@
 # see init.pp for more authors, license
 # and more details
 class acme_sh::params {
+  $acme_source         = 'https://github.com/acmesh-official/acme.sh'
   $acme_repo_path      = '/opt/acme_repo'
   $acme_home           = '/opt/acme'
   $acme_certhome       = $acme_home
