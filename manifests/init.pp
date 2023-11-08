@@ -22,6 +22,9 @@
 # * `$manage_dependencies`
 # Boolean to specify whether or not to install the required package dependencies
 #
+# * `$acme_cron_enable`
+# Boolean to specify whether or not to install the cron job on install
+#
 # Authors
 # -------
 #
@@ -41,12 +44,19 @@ class acme_sh (
   String $acme_accountemail   = $acme_sh::params::acme_accountemail,
   String $acme_version        = $acme_sh::params::acme_version,
   Boolean $manage_dependencies = $acme_sh::params::manage_dependencies,
+  Boolean $acme_cron_enable   = $acme_sh::params::acme_cron_enable,
   ) inherits acme_sh::params {
 
   if $manage_dependencies {
     $dependencies = ['git']
     ensure_packages($dependencies)
     Package[$dependencies] -> Vcsrepo[$acme_repo_path]
+  }
+
+  if $acme_cron_enable {
+    $acme_cron = ''
+  } else {
+    $acme_cron = '--no-cron'
   }
 
   vcsrepo {$acme_repo_path:
@@ -58,7 +68,7 @@ class acme_sh (
   }
 
   exec { 'acme_sh::self-install':
-    command => "/bin/sh ./acme.sh --install --home ${acme_home} --certhome ${acme_certhome} --accountemail \"${acme_accountemail}\"",
+    command => "/bin/sh ./acme.sh --install ${$acme_cron} --home ${acme_home} --certhome ${acme_certhome} --accountemail \"${acme_accountemail}\"",
     path    => ['/bin', '/usr/bin'],
     cwd     => $acme_repo_path,
     creates => $acme_home,
