@@ -9,5 +9,6 @@ class acme_sh::params {
   $acme_accountemail   = undef
   $acme_version        = 'master'
   $manage_dependencies = false
+  $acme_cron_enable    = true
 }
 
